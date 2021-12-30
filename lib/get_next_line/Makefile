@@ -1,6 +1,6 @@
 # ****************************** Compiler Options ******************************
 CC		:= cc
-CFLAGS	:= -Wall -Wextra -Werror -I $(INCLUDES_DIR)
+CFLAGS	:= -Wall -Wextra -Werror
 
 # ******************************* Other commands *******************************
 RM	:= rm -f
@@ -22,7 +22,7 @@ $(NAME):	$(OBJS)
 			$(AR) $(NAME) $?
 
 %.o:	$(SRCS_DIR)/%.c
-		$(CC) $(CFLAGS) $(INCLUDES_DIR) -c -o $@ $<
+		$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -c -o $@ $<
 
 clean:
 	$(RM) $(OBJS)
