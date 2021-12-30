@@ -10,12 +10,14 @@ RM	:= rm -f
 # ******************************** Directories *********************************
 INCLUDES_DIR	:= include
 SRCS_DIR		:= src
+LIBS_DIR		:= lib
 
 # *********************************** Files ************************************
 NAME	:= so_long
 SRCS	:=
 HEADERS	:=
 OBJS	:= $(SRCS:.c=.o)
+LIBS	:= libgnl.a
 MAIN	:= main.c
 
 # ********************************** Targets ***********************************
@@ -28,8 +30,14 @@ $(NAME):	$(OBJS) $(addprefix $(INCLUDES_DIR)/, $(HEADERS))
 %.o:	$(SRCS_DIR)/%.c
 		$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -c -o $@ $<
 
+gnl:
+	make -C $(LIBS_DIR)/get_next_line
+	make clean -C $(LIBS_DIR)/get_next_line
+	mv $(LIBS_DIR)/get_next_line/libgnl.a .
+
 clean:
 	$(RM) $(OBJS)
+	$(RM) $(LIBS)
 
 fclean:	clean
 		$(RM) $(NAME)
