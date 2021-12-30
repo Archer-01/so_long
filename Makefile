@@ -1,8 +1,9 @@
 # ****************************** Compiler Options ******************************
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g
-LIBMLX		+= -L /usr/local/lib -lmlx -I /usr/local/include
-FRAMEWORKS	+= -framework OpenGL -framework AppKit
+LIBMLX		:= -L /usr/local/lib -lmlx -I /usr/local/include
+LIBGNL		:= -L. -lgnl
+FRAMEWORKS	:= -framework OpenGL -framework AppKit
 
 # ******************************* Other commands *******************************
 RM	:= rm -f
@@ -15,7 +16,7 @@ LIBS_DIR		:= lib
 # *********************************** Files ************************************
 NAME	:= so_long
 SRCS	:=
-HEADERS	:=
+HEADERS	:= get_next_line.h
 OBJS	:= $(SRCS:.c=.o)
 LIBS	:= libgnl.a
 MAIN	:= main.c
@@ -24,13 +25,13 @@ MAIN	:= main.c
 all:	$(NAME)
 		./$(NAME)
 
-$(NAME):	$(OBJS) $(addprefix $(INCLUDES_DIR)/, $(HEADERS))
-			$(CC) $(CFLAGS) $(LIBMLX) $(FRAMEWORKS) $(OBJS) $(MAIN) -o $(NAME)
+$(NAME):	$(OBJS) $(addprefix $(INCLUDES_DIR)/, $(HEADERS)) $(LIBS) $(MAIN)
+			$(CC) $(CFLAGS) $(LIBMLX) $(LIBGNL) $(FRAMEWORKS) $(OBJS) $(MAIN) -o $(NAME)
 
 %.o:	$(SRCS_DIR)/%.c
 		$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -c -o $@ $<
 
-gnl:
+libgnl.a:
 	make -C $(LIBS_DIR)/get_next_line
 	make clean -C $(LIBS_DIR)/get_next_line
 	mv $(LIBS_DIR)/get_next_line/libgnl.a .
