@@ -24,7 +24,6 @@ MAIN	:= main.c
 
 # ********************************** Targets ***********************************
 all:	$(NAME)
-		./$(NAME)
 
 $(NAME):	$(OBJS) $(addprefix $(INCLUDES_DIR)/, $(HEADERS)) $(LIBS) $(MAIN)
 			$(CC) $(CFLAGS) $(LIBMLX) $(LIBFT) $(LIBGNL) $(FRAMEWORKS) $(OBJS) $(MAIN) -o $(NAME)
