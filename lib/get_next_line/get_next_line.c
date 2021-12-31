@@ -6,12 +6,46 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 13:24:02 by hhamza            #+#    #+#             */
-/*   Updated: 2021/12/29 20:00:44 by hhamza           ###   ########.fr       */
+/*   Updated: 2021/12/31 11:56:10 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+/**
+ * @brief Saves the remaining characters for the next 'get_next_line' call
+ *
+ * @param line: line to be returned by 'get_next_line'
+ * @param remainder: remainder to be saved for next 'get_next_line' call
+ * @return char*: modified line if contains characters after newline
+ */
+static char	*ft_save_remainder(char *line, char *remainder)
+{
+	ssize_t	endl_index;
+	char	*temp;
+
+	endl_index = ft_indexof(line, '\n');
+	if (endl_index != -1)
+	{
+		ft_strlcpy(remainder, line + endl_index + 1, BUFFER_SIZE + 1);
+		temp = line;
+		line = (char *) malloc(sizeof(char) * (endl_index + 2));
+		if (line == NULL)
+			return (NULL);
+		ft_strlcpy(line, temp, endl_index + 2);
+		free(temp);
+	}
+	else
+		remainder[0] = '\0';
+	return (line);
+}
+
+/**
+ * @brief Get the next line from a file descriptor
+ *
+ * @param fd: file descriptor
+ * @return char*: the next line
+ */
 char	*get_next_line(int fd)
 {
 	static char	remainder[BUFFER_SIZE + 1];
@@ -37,26 +71,5 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	line = ft_save_remainder(line, remainder);
-	return (line);
-}
-
-char	*ft_save_remainder(char *line, char *remainder)
-{
-	ssize_t	endl_index;
-	char	*temp;
-
-	endl_index = ft_indexof(line, '\n');
-	if (endl_index != -1)
-	{
-		ft_strlcpy(remainder, line + endl_index + 1, BUFFER_SIZE + 1);
-		temp = line;
-		line = (char *) malloc(sizeof(char) * (endl_index + 2));
-		if (line == NULL)
-			return (NULL);
-		ft_strlcpy(line, temp, endl_index + 2);
-		free(temp);
-	}
-	else
-		remainder[0] = '\0';
 	return (line);
 }

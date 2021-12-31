@@ -6,12 +6,18 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 13:27:06 by hhamza            #+#    #+#             */
-/*   Updated: 2021/12/29 20:00:39 by hhamza           ###   ########.fr       */
+/*   Updated: 2021/12/31 11:50:53 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+/**
+ * @brief Calculates length of a string
+ *
+ * @param str: string to be operated on
+ * @return size_t: length of the string
+ */
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
@@ -22,6 +28,12 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
+/**
+ * @brief Duplicates the string entered as a parameter
+ *
+ * @param str: string to duplicate
+ * @return char*: duplicated string
+ */
 char	*ft_strdup(const char *str)
 {
 	char	*result;
@@ -35,6 +47,13 @@ char	*ft_strdup(const char *str)
 	return (result);
 }
 
+/**
+ * @brief Finds the first index of a character inside a string
+ *
+ * @param str: string to be operated on
+ * @param c: character to find
+ * @return int: index of the character or -1 if not found or error
+ */
 int	ft_indexof(const char *str, char c)
 {
 	unsigned int	i;
@@ -51,6 +70,14 @@ int	ft_indexof(const char *str, char c)
 	return (-1);
 }
 
+/**
+ * @brief Copies a string into another
+ *
+ * @param dst: destination string
+ * @param src: source string
+ * @param dstsize: number of characters to be copied ('\0' included)
+ * @return size_t: length of source string
+ */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	unsigned int	i;
@@ -68,6 +95,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (ft_strlen(src));
 }
 
+/**
+ * @brief Joins two strings into a new one
+ *
+ * @param s1: first string
+ * @param s2: second string
+ * @return char*: newly created joined string
+ */
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*result;
