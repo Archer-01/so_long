@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 20:26:11 by hhamza            #+#    #+#             */
-/*   Updated: 2021/11/12 02:43:06 by hhamza           ###   ########.fr       */
+/*   Created: 2021/11/09 20:50:10 by hhamza            #+#    #+#             */
+/*   Updated: 2021/12/31 12:14:29 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+/**
+ * @brief Destroys node and frees allocated memory
+ *
+ * @param lst: node to be destroyed
+ * @param del: function used to free node content
+ */
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst)
-		return ;
-	if (!(*lst))
-	{
-		*lst = new;
-		return ;
-	}
-	ft_lstlast(*lst)->next = new;
+	(*del)(lst->content);
+	free(lst);
 }

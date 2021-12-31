@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 20:12:09 by hhamza            #+#    #+#             */
-/*   Updated: 2021/11/12 02:25:39 by hhamza           ###   ########.fr       */
+/*   Created: 2021/11/09 19:02:36 by hhamza            #+#    #+#             */
+/*   Updated: 2021/12/31 12:12:28 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+/**
+ * @brief Prepends a list with a new node
+ *
+ * @param lst: list to be prepended to
+ * @param new: new node to prepend
+ */
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst)
-		return (0);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+		return ;
+	if (new)
+		new->next = *lst;
+	*lst = new;
 }
