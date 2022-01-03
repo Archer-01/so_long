@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:08:14 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/03 18:43:26 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/03 19:08:45 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_check_minimum_requirements(t_list *lst)
 		lst = lst->next;
 	}
 	return (exit_count >= 1 && collectible_count >= 1 \
-	&& starting_positions_count >= 1);
+	&& starting_positions_count == 1);
 }
 
 /**
