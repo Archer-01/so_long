@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_indexof.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/19 13:27:06 by hhamza            #+#    #+#             */
-/*   Updated: 2021/12/31 16:44:34 by hhamza           ###   ########.fr       */
+/*   Created: 2022/01/03 13:21:43 by hhamza            #+#    #+#             */
+/*   Updated: 2022/01/03 13:22:33 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 /**
  * @brief Finds the first index of a character inside a string

@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 14:36:41 by hhamza            #+#    #+#             */
-/*   Updated: 2021/12/30 17:50:27 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/03 13:23:11 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_indexof(const char *str, char c);
 
 typedef struct s_list
 {

@@ -12,7 +12,7 @@ SRCS_DIR		:= .
 
 # *********************************** Files ************************************
 NAME	:= libgnl.a
-SRCS	:= get_next_line.c get_next_line_utils.c
+SRCS	:= get_next_line.c
 OBJS	:= $(SRCS:.c=.o)
 
 # ********************************** Targets ***********************************
