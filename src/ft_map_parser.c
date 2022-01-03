@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:36:52 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/03 15:34:28 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/03 15:43:52 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,6 @@ t_list	*ft_map_parser(const char *path)
 		exit(2);
 	}
 	lst = ft_map_to_list(fd);
-	if (ft_check_rectangular(lst) == 1)
-		printf("Rectangular map\n");
-	else
-		printf("Non rectangular map\n");
 	close(fd);
 	return (lst);
 }
