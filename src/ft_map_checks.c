@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:08:14 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/03 15:33:24 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/03 17:38:56 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,66 @@ int	ft_check_rectangular(t_list *lst)
 		new_length = ft_strlen(lst->content);
 		if (new_length != length)
 			return (0);
+		lst = lst->next;
+	}
+	return (1);
+}
+
+static int	ft_is_wall(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != '1')
+			return (0);
+		++i;
+	}
+	return (1);
+}
+
+/**
+ * @brief Checks if map is surrounded by walls
+ *
+ * @param lst: Linked list containing the map to check
+ * @return int: 1 for valid, 0 otherwise
+ */
+int	ft_check_if_surrounded_by_walls(t_list *lst)
+{
+	t_list	*tmp;
+	char	*content;
+
+	tmp = lst;
+	while (tmp != NULL)
+	{
+		if ((tmp == lst || tmp->next == NULL) && !ft_is_wall(tmp->content))
+			return (0);
+		content = tmp->content;
+		if (content[0] != '1' || content[ft_strlen(content) - 1] != '1')
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+int	ft_check_if_valid_characters(t_list *lst)
+{
+	int		i;
+	char	*content;
+	char	c;
+
+	while (lst != NULL)
+	{
+		content = (char *) lst->content;
+		i = 0;
+		while (content[i] != '\0')
+		{
+			c = content[i];
+			if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
+				return (0);
+			++i;
+		}
 		lst = lst->next;
 	}
 	return (1);
