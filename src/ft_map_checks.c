@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 15:08:14 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/03 17:38:56 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/03 18:43:26 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,12 @@ int	ft_check_if_surrounded_by_walls(t_list *lst)
 	return (1);
 }
 
+/**
+ * @brief Checks if map has no invalid characters
+ *
+ * @param lst: Linked list containing the map to check
+ * @return int: 1 for valid, 0 otherwise
+ */
 int	ft_check_if_valid_characters(t_list *lst)
 {
 	int		i;
