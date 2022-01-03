@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_parser.h                                    :+:      :+:    :+:   */
+/*   ft_map_checks.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 10:37:13 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/03 15:24:14 by hhamza           ###   ########.fr       */
+/*   Created: 2022/01/03 15:07:51 by hhamza            #+#    #+#             */
+/*   Updated: 2022/01/03 15:32:46 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAP_PARSER_H
-# define FT_MAP_PARSER_H
+#ifndef FT_MAP_CHECKS_H
+# define FT_MAP_CHECKS_H
 
-# include "get_next_line.h"
 # include "libft.h"
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include "ft_map_checks.h"
 
-t_list	*ft_map_parser(const char *path);
+int	ft_check_minimum_requirements(t_list *lst);
+int	ft_check_rectangular(t_list *lst);
 
 #endif
