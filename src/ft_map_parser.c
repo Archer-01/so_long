@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:36:52 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/03 19:04:55 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/03 19:16:34 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static void	ft_map_checker(t_list *lst)
 	{
 		write(STDERR_FILENO, "Error\n", 6);
 		write(STDERR_FILENO, "Invalid map\n", 12);
+		ft_lstclear(&lst, &free);
 		exit(1);
 	}
 }
