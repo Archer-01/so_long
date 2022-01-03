@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:36:52 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/03 15:43:52 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/03 19:04:55 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,27 @@ static t_list	*ft_map_to_list(int fd)
 }
 
 /**
+ * @brief Check map
+ * Checks if map has invalid characters, if map has at least one exit, one
+ * collectible and one starting position, if map is rectangular, and if map is
+ * surrounded by walls. this function exits the program on error and returns
+ * on success
+ * @param lst: Linked list containing the map to check
+ */
+static void	ft_map_checker(t_list *lst)
+{
+	if (!ft_check_if_valid_characters(lst) \
+	|| !ft_check_minimum_requirements(lst) \
+	|| !ft_check_rectangular(lst) \
+	|| !ft_check_if_surrounded_by_walls(lst))
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Invalid map\n", 12);
+		exit(1);
+	}
+}
+
+/**
  * @brief Parses map file (.ber), checks if valid and returns map as linked list
  *
  * @param path: Path to map file (.ber)
@@ -64,6 +85,7 @@ t_list	*ft_map_parser(const char *path)
 		exit(2);
 	}
 	lst = ft_map_to_list(fd);
+	ft_map_checker(lst);
 	close(fd);
 	return (lst);
 }
