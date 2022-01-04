@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:36:52 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/03 19:16:34 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/04 11:46:50 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,43 @@ static t_list	*ft_map_to_list(int fd)
 }
 
 /**
- * @brief Check map
- * Checks if map has invalid characters, if map has at least one exit, one
+ * @brief Convert linked list to matrix format
+ *
+ * @param lst: Linked list to convert
+ * @return char**: Converted matrix
+ */
+static char	**ft_lst_to_matrix(t_list *lst)
+{
+	char	**matrix;
+	size_t	line_count;
+	t_list	*tmp;
+	int		i;
+
+	if (lst == NULL)
+		return (NULL);
+	line_count = ft_lstsize(lst);
+	matrix = (char **) malloc(sizeof(char *) * (line_count + 1));
+	if (matrix == NULL)
+	{
+		ft_lstclear(&lst, &free);
+		return (NULL);
+	}
+	i = 0;
+	tmp = lst;
+	while (tmp != NULL)
+	{
+		matrix[i] = ft_strdup(tmp->content);
+		++i;
+		tmp = tmp->next;
+	}
+	matrix[i] = NULL;
+	ft_lstclear(&lst, &free);
+	return (matrix);
+}
+
+/**
+ * @brief Check map.
+ *  Checks if map has invalid characters, if map has at least one exit, one
  * collectible and one starting position, if map is rectangular, and if map is
  * surrounded by walls. this function exits the program on error and returns
  * on success
@@ -68,15 +103,16 @@ static void	ft_map_checker(t_list *lst)
 }
 
 /**
- * @brief Parses map file (.ber), checks if valid and returns map as linked list
+ * @brief Parse map file (.ber), checks if valid and return map as matrix
  *
  * @param path: Path to map file (.ber)
- * @return t_list*: Newly created linked list
+ * @return char**: Newly created matrix
  */
-t_list	*ft_map_parser(const char *path)
+char	**ft_map_parser(const char *path)
 {
 	int		fd;
 	t_list	*lst;
+	char	**matrix;
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
@@ -87,6 +123,7 @@ t_list	*ft_map_parser(const char *path)
 	}
 	lst = ft_map_to_list(fd);
 	ft_map_checker(lst);
+	matrix = ft_lst_to_matrix(lst);
 	close(fd);
-	return (lst);
+	return (matrix);
 }
