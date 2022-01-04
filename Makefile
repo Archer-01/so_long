@@ -28,7 +28,7 @@ all:	$(NAME)
 $(NAME):	$(OBJS) $(addprefix $(INCLUDES_DIR)/, $(HEADERS)) $(LIBS) $(MAIN)
 			$(CC) $(CFLAGS) $(LIBMLX) $(LIBFT) $(LIBGNL) $(FRAMEWORKS) $(OBJS) $(MAIN) -o $(NAME)
 
-%.o:	$(SRCS_DIR)/%.c
+%.o:	$(SRCS_DIR)/%.c $(addprefix $(INCLUDES_DIR)/, $(HEADERS))
 		$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -c -o $@ $<
 
 libgnl.a:
