@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:36:52 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/04 11:46:50 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/05 12:00:15 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,19 @@ static t_list	*ft_map_to_list(int fd)
 	return (lst);
 }
 
+static void	ft_clear_matrix(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i] != NULL)
+	{
+		free(matrix[i]);
+		++i;
+	}
+	free(matrix);
+}
+
 /**
  * @brief Convert linked list to matrix format
  *
@@ -65,6 +78,7 @@ static char	**ft_lst_to_matrix(t_list *lst)
 	if (matrix == NULL)
 	{
 		ft_lstclear(&lst, &free);
+		ft_clear_matrix(matrix);
 		return (NULL);
 	}
 	i = 0;
@@ -76,8 +90,7 @@ static char	**ft_lst_to_matrix(t_list *lst)
 		tmp = tmp->next;
 	}
 	matrix[i] = NULL;
-	ft_lstclear(&lst, &free);
-	return (matrix);
+	return (ft_lstclear(&lst, &free), matrix);
 }
 
 /**
