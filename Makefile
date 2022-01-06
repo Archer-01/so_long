@@ -16,9 +16,11 @@ LIBS_DIR		:= lib
 
 # *********************************** Files ************************************
 NAME	:= so_long
-SRCS	:= ft_map_parser.c ft_map_checks.c ft_render_map.c ft_colors.c
+SRCS	:= ft_map_parser.c ft_map_checks.c ft_render_map.c ft_colors.c \
+			ft_mlx_pixel.c ft_images.c
 HEADERS	:= get_next_line.h libft.h ft_map_parser.h ft_map_checks.h \
-			ft_render_map.h ft_colors.h
+			ft_render_map.h ft_colors.h ft_mlx_pixel.h ft_images.h \
+			ft_mlx_types.h
 OBJS	:= $(SRCS:.c=.o)
 LIBS	:= libgnl.a libft.a
 MAIN	:= main.c
