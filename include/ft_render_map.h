@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 12:40:51 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/04 12:47:20 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/05 17:56:50 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <mlx.h>
 # include <unistd.h>
 # include "libft.h"
+# include "ft_mlx_pixel.h"
+# include "ft_images.h"
 
 # define WIN_BLOCK_WIDTH 50
 # define WIN_BLOCK_HEIGHT 50
