@@ -16,8 +16,12 @@ LIBS_DIR		:= lib
 
 # *********************************** Files ************************************
 NAME	:= so_long
-SRCS	:=
-HEADERS	:= get_next_line.h \
+SRCS	:= ft_checks_1.c \
+			ft_checks_2.c \
+			ft_parser.c
+HEADERS	:= ft_errors.h \
+			ft_parser.h \
+			get_next_line.h \
 			libft.h
 OBJS	:= $(SRCS:.c=.o)
 LIBS	:= libgnl.a libft.a
