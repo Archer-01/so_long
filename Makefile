@@ -17,7 +17,8 @@ LIBS_DIR		:= lib
 # *********************************** Files ************************************
 NAME	:= so_long
 SRCS	:=
-HEADERS	:=
+HEADERS	:= get_next_line.h \
+			libft.h
 OBJS	:= $(SRCS:.c=.o)
 LIBS	:= libgnl.a libft.a
 MAIN	:= main.c

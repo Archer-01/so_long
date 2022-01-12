@@ -6,11 +6,34 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 13:24:02 by hhamza            #+#    #+#             */
-/*   Updated: 2021/12/31 11:56:10 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/12 09:38:37 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+/**
+ * @brief Finds the first index of a character inside a string
+ *
+ * @param str: string to be operated on
+ * @param c: character to find
+ * @return int: index of the character or -1 if not found or error
+ */
+static int	ft_indexof(const char *str, char c)
+{
+	unsigned int	i;
+
+	if (str == NULL)
+		return (-1);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == c)
+			return (i);
+		++i;
+	}
+	return (-1);
+}
 
 /**
  * @brief Saves the remaining characters for the next 'get_next_line' call
