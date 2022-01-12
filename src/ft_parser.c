@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:52:20 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/12 12:46:55 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/12 19:42:37 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static char	**ft_lst_to_matrix(t_list *lst)
 	char	**matrix;
 	int		i;
 
-	matrix = (char **) ft_calloc(1, sizeof(char **));
+	matrix = (char **) ft_calloc(ft_lstsize(lst) + 1, sizeof(char *));
 	if (matrix == NULL)
 	{
 		ft_lstclear(&lst, &free);
@@ -101,7 +101,7 @@ static char	**ft_lst_to_matrix(t_list *lst)
 		++i;
 		lst = lst->next;
 	}
-	return (ft_lstclear(&lst, &free), matrix);
+	return (matrix[i] = NULL, ft_lstclear(&lst, &free), matrix);
 }
 
 /**

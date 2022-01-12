@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:43:50 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/12 11:27:35 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/12 16:17:17 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define E_BADMAP 2
 # define E_NOFILE 3
 # define E_MALLOC 4
+# define E_MLX_IMG 5
 
 # define E_BADARGS_MSG "Usage: ./so_long map-path.ber\n"
 # define E_BADMAPEXT_MSG "Error\nMap file must have '.ber' extension\n"
@@ -28,5 +29,6 @@
 # define E_BADMAP_MINREQ_MSG "Error\nMap must have at least one exit, one \
 collectible and one starting position\n"
 # define E_BADMAP_RECT_MSG "Error\nMap  must be rectangular\n"
+# define E_MLX_IMG_MSG "Error creating mlx image\n"
 
 #endif
