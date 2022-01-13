@@ -18,11 +18,13 @@ LIBS_DIR		:= lib
 NAME	:= so_long
 SRCS	:= ft_checks_1.c \
 			ft_checks_2.c \
+			ft_destroy.c \
 			ft_init.c \
 			ft_init_animations.c \
 			ft_init_mlx.c \
 			ft_parser.c
-HEADERS	:= ft_errors.h \
+HEADERS	:= ft_destroy.h \
+			ft_errors.h \
 			ft_init.h \
 			ft_parser.h \
 			ft_types.h \
