@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:41:25 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/12 19:09:04 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/13 12:59:01 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "libft.h"
 
 # define BLOCK_SIZE 70
+# define WIN_TITLE "so_long"
 
 void			*ft_init_img(const char *path, t_mlx *mlx);
 t_animation		*ft_init_idle(t_mlx *mlx);
@@ -27,6 +28,7 @@ t_animation		*ft_init_right(t_mlx *mlx);
 t_animation		*ft_init_up(t_mlx *mlx);
 t_animation		*ft_init_down(t_mlx *mlx);
 t_player_imgs	*ft_init_player_imgs(t_mlx *mlx);
-t_map			*ft_init_map(t_mlx *mlx, const char **map);
+t_mlx			*ft_init_mlx(int width, int height, const char *title);
+t_map			*ft_init_map(const char **map);
 
 #endif

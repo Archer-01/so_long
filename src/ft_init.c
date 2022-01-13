@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:21:32 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/12 19:43:52 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/13 12:59:16 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,28 +105,29 @@ static int	ft_count_collectibles(const char **map)
 
 /**
  * @brief Initialize map data (images, map dimensions and collectibles count).
- *
+ * Exits on error
  * @param mlx: Mlx data
  * @param map: Map matrix
  * @return t_map*: Pointer on map data structure
  */
-t_map	*ft_init_map(t_mlx *mlx, const char **map)
+t_map	*ft_init_map(const char **map)
 {
-	t_map	*map_data;
+	t_map	*data;
 
-	map_data = (t_map *) ft_calloc(1, sizeof(t_map));
+	data = (t_map *) ft_calloc(1, sizeof(t_map));
 	if (map == NULL)
 	{
 		ft_putstr_fd(E_MALLOC_MSG, STDERR_FILENO);
 		exit(E_MALLOC);
 	}
-	map_data->player_imgs = ft_init_player_imgs(mlx);
-	map_data->collectible = ft_init_img("assets/collectible.xpm", mlx);
-	map_data->empty = ft_init_img("assets/empty.xpm", mlx);
-	map_data->exit = ft_init_img("assets/exit.xpm", mlx);
-	map_data->wall = ft_init_img("assets/barrel.xpm", mlx);
-	map_data->width = ft_strlen(map[0]) * BLOCK_SIZE;
-	map_data->height = ft_maplen(map) * BLOCK_SIZE;
-	map_data->collectible_count = ft_count_collectibles(map);
-	return (map_data);
+	data->width = ft_strlen(map[0]) * BLOCK_SIZE;
+	data->height = ft_maplen(map) * BLOCK_SIZE;
+	data->collectible_count = ft_count_collectibles(map);
+	data->mlx = ft_init_mlx(data->width, data->height, WIN_TITLE);
+	data->player_imgs = ft_init_player_imgs(data->mlx);
+	data->collectible = ft_init_img("assets/collectible.xpm", data->mlx);
+	data->empty = ft_init_img("assets/empty.xpm", data->mlx);
+	data->exit = ft_init_img("assets/exit.xpm", data->mlx);
+	data->wall = ft_init_img("assets/barrel.xpm", data->mlx);
+	return (data);
 }

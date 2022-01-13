@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 13:48:14 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/12 18:40:25 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/13 12:26:18 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_player_imgs
 
 typedef struct s_map
 {
+	t_mlx			*mlx;
 	t_player_imgs	*player_imgs;
 	void			*collectible;
 	void			*empty;
