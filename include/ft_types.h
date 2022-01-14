@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 13:48:14 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/13 12:26:18 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/14 20:07:00 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_map
 	int				width;
 	int				height;
 	int				collectible_count;
+	int				player_x;
+	int				player_y;
 }	t_map;
 
 #endif

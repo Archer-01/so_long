@@ -22,11 +22,13 @@ SRCS	:= ft_checks_1.c \
 			ft_init_1.c \
 			ft_init_2.c \
 			ft_parser.c \
+			ft_render.c \
 			ft_utils.c
 HEADERS	:= ft_destroy.h \
 			ft_errors.h \
 			ft_init.h \
 			ft_parser.h \
+			ft_render.h \
 			ft_types.h \
 			ft_utils.h \
 			get_next_line.h \
