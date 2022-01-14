@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_init_1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 18:21:32 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/13 12:59:16 by hhamza           ###   ########.fr       */
+/*   Created: 2022/01/14 03:39:38 by hhamza            #+#    #+#             */
+/*   Updated: 2022/01/14 04:05:10 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,12 @@ t_player_imgs	*ft_init_player_imgs(t_mlx *mlx)
 {
 	t_player_imgs	*imgs;
 
-	imgs = (t_player_imgs *) ft_calloc(1, sizeof(t_player_imgs));
-	if (imgs == NULL)
-	{
-		ft_putstr_fd(E_MALLOC_MSG, STDERR_FILENO);
-		exit(E_MALLOC);
-	}
-	imgs->idle = ft_init_idle(mlx);
-	imgs->left = ft_init_left(mlx);
-	imgs->right = ft_init_right(mlx);
-	imgs->up = ft_init_up(mlx);
-	imgs->down = ft_init_down(mlx);
+	imgs = ft_allocate(1, sizeof(t_player_imgs));
+	imgs->idle = ft_init_animation("data/idle.animation", mlx);
+	imgs->left = ft_init_animation("data/left.animation", mlx);
+	imgs->right = ft_init_animation("data/right.animation", mlx);
+	imgs->up = ft_init_animation("data/up.animation", mlx);
+	imgs->down = ft_init_animation("data/down.animation", mlx);
 	return (imgs);
 }
 
@@ -114,12 +109,7 @@ t_map	*ft_init_map(const char **map)
 {
 	t_map	*data;
 
-	data = (t_map *) ft_calloc(1, sizeof(t_map));
-	if (map == NULL)
-	{
-		ft_putstr_fd(E_MALLOC_MSG, STDERR_FILENO);
-		exit(E_MALLOC);
-	}
+	data = ft_allocate(1, sizeof(t_map));
 	data->width = ft_strlen(map[0]) * BLOCK_SIZE;
 	data->height = ft_maplen(map) * BLOCK_SIZE;
 	data->collectible_count = ft_count_collectibles(map);
