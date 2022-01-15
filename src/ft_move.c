@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 04:33:58 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 21:07:32 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:24:38 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ static void	ft_calc_new_coords(int keycode, t_map *data, int *i, int *j)
 		++(*j);
 }
 
+static void	ft_log_moves(t_map *data)
+{
+	++(data->player_moves);
+	printf("%sMove count: %d\n", "\e[0;33m", data->player_moves);
+}
+
 /**
  * @brief Move player.
  *
@@ -46,9 +52,7 @@ void	ft_move(t_map *data, int keycode)
 	int	j;
 
 	ft_calc_new_coords(keycode, data, &i, &j);
-	if (data->map[i][j] == '1')
-		return ;
-	else if (data->map[i][j] == '0' || data->map[i][j] == 'C')
+	if (data->map[i][j] == '0' || data->map[i][j] == 'C')
 	{
 		ft_swap(&data->map[data->player_i][data->player_j], &data->map[i][j]);
 		if (data->map[data->player_i][data->player_j] == 'C')
@@ -60,10 +64,12 @@ void	ft_move(t_map *data, int keycode)
 		ft_put_img(data->player_imgs->idle->frames[0], i, j, data->mlx);
 		data->player_i = i;
 		data->player_j = j;
+		ft_log_moves(data);
 	}
 	else if (data->map[i][j] == 'E'
 		&& data->player_collectibles == data->collectible_count)
 	{
+		ft_log_moves(data);
 		printf("%sYou win!!\n", "\e[0;32m");
 		ft_exit(data);
 	}
