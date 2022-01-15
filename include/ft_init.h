@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 16:41:25 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/14 03:38:39 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:51:36 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 void			*ft_init_img(const char *path, t_mlx *mlx);
 t_player_imgs	*ft_init_player_imgs(t_mlx *mlx);
 t_mlx			*ft_init_mlx(int width, int height, const char *title);
-t_map			*ft_init_map(const char **map);
+t_game			*ft_init_map(const char **map);
 t_animation		*ft_init_animation(const char *path, t_mlx *mlx);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 04:33:58 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:24:38 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:54:24 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @param i: Pointer to line index
  * @param j: Pointer to column index
  */
-static void	ft_calc_new_coords(int keycode, t_map *data, int *i, int *j)
+static void	ft_calc_new_coords(int keycode, t_game *data, int *i, int *j)
 {
 	*i = data->player_i;
 	*j = data->player_j;
@@ -34,7 +34,12 @@ static void	ft_calc_new_coords(int keycode, t_map *data, int *i, int *j)
 		++(*j);
 }
 
-static void	ft_log_moves(t_map *data)
+/**
+ * @brief Update and log player moves
+ *
+ * @param data: Game data
+ */
+static void	ft_log_moves(t_game *data)
 {
 	++(data->player_moves);
 	printf("%sMove count: %d\n", "\e[0;33m", data->player_moves);
@@ -46,7 +51,7 @@ static void	ft_log_moves(t_map *data)
  * @param data: Game data
  * @param keycode: Pressed key code
  */
-void	ft_move(t_map *data, int keycode)
+void	ft_move(t_game *data, int keycode)
 {
 	int	i;
 	int	j;

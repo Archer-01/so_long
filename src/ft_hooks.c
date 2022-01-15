@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 21:05:04 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:00:11 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 23:06:26 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param data: Game data
  * @return int: Zero
  */
-static int	ft_key_hook_handler(int keycode, t_map *data)
+static int	ft_key_hook_handler(int keycode, t_game *data)
 {
 	if (keycode == ESC_KEY)
 		ft_exit(data);
@@ -32,9 +32,9 @@ static int	ft_key_hook_handler(int keycode, t_map *data)
 /**
  * @brief Install all necessary mlx hooks
  *
- * @param data:Game data
+ * @param data: Game data
  */
-void	ft_install_hooks(t_map *data)
+void	ft_install_hooks(t_game *data)
 {
 	mlx_hook(data->mlx->win_ptr, ON_WIN_CLOSE, 0, &ft_exit, data);
 	mlx_hook(data->mlx->win_ptr, ON_KEY_PRESS, 0, ft_key_hook_handler, data);

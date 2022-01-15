@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 05:42:13 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 04:42:39 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:54:37 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	ft_put_img(void *img_ptr, int i, int j, t_mlx *mlx)
 /**
  * @brief Render map to window.
  *
- * @param map_data: Map data (images, dimensions, ...)
+ * @param map_data: Game data (images, dimensions, ...)
  * @param map: Map matrix
  */
-void	ft_render(t_map *data, const char **map)
+void	ft_render(t_game *data, const char **map)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 21:04:46 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:00:02 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:51:36 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@
 # define S_KEY 1
 # define D_KEY 2
 
-void	ft_install_hooks(t_map *data);
+void	ft_install_hooks(t_game *data);
 
 #endif

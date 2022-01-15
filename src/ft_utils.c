@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 01:34:32 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 05:06:25 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 23:07:28 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ int	ft_open(const char *path)
  * @param data: Daya to be freed
  * @return int: Zero
  */
-int	ft_exit(t_map *data)
+int	ft_exit(t_game *data)
 {
-	ft_destroy_map(&data, data->mlx);
+	ft_destroy_game_data(&data, data->mlx);
 	exit(EXIT_SUCCESS);
 }
 
@@ -81,7 +81,6 @@ void	ft_swap(char *a, char *b)
 /**
  * @brief Clear matrix from memory.
  * Frees all allocated memory and sets matrix pointer to NULL
- * (Helper function for ft_parser)
  * @param matrix: Matrix to operate on
  */
 void	ft_clear_matrix(char ***matrix)

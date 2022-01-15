@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 11:27:02 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 04:58:50 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 23:05:39 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,13 @@ static void	ft_destroy_mlx(t_mlx **mlx)
 }
 
 /**
- * @brief Destroy map data.
- * Destroy all map_data members and set map data pointer to NULL.
+ * @brief Destroy game data.
+ * Destroy all game data members and set game data pointer to NULL.
  * Exits on error.
- * @param map_data: Map data to destroy
+ * @param data: Game data to destroy
  * @param mlx: Mlx data
  */
-void	ft_destroy_map(t_map **data, t_mlx *mlx)
+void	ft_destroy_game_data(t_game **data, t_mlx *mlx)
 {
 	if (data == NULL || mlx == NULL)
 	{

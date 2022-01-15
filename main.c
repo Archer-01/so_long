@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:41:49 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 03:13:53 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:51:36 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 int	main(int argc, char **argv)
 {
 	char	**map;
-	t_map	*data;
+	t_game	*data;
 
 	if (argc != 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 04:33:12 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 04:39:17 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:51:36 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 # include "ft_render.h"
 # include <stdio.h>
 
-void	ft_move(t_map *data, int keycode);
+void	ft_move(t_game *data, int keycode);
 
 #endif

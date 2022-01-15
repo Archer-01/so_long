@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 03:39:38 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:20:55 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 22:51:36 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,11 @@ static int	ft_count_collectibles(const char **map)
  * @param map: Map matrix
  * @return t_map*: Pointer on map data structure
  */
-t_map	*ft_init_map(const char **map)
+t_game	*ft_init_map(const char **map)
 {
-	t_map	*data;
+	t_game	*data;
 
-	data = ft_allocate(1, sizeof(t_map));
+	data = ft_allocate(1, sizeof(t_game));
 	data->width = ft_strlen(map[0]) * BLOCK_SIZE;
 	data->height = ft_maplen(map) * BLOCK_SIZE;
 	data->collectible_count = ft_count_collectibles(map);
