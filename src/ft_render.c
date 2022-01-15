@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 05:42:13 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/14 20:10:10 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 04:42:39 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
  * @brief Put image to window.
  * Exits on error.
  * @param img_ptr: Image pointer
- * @param x: x position of image in window
- * @param y: y position of image in window
+ * @param i: Line index in map matrix
+ * @param j: Column index in map matrix
  * @param mlx: Mlx data
  */
-static void	ft_put_img(void *img_ptr, int i, int j, t_mlx *mlx)
+void	ft_put_img(void *img_ptr, int i, int j, t_mlx *mlx)
 {
 	if (img_ptr == NULL)
 	{
@@ -59,8 +59,8 @@ void	ft_render(t_map *data, const char **map)
 			else if (map[i][j] == 'P')
 			{
 				ft_put_img(data->player_imgs->idle->frames[0], i, j, data->mlx);
-				data->player_x = j * BLOCK_SIZE;
-				data->player_y = i * BLOCK_SIZE;
+				data->player_i = i;
+				data->player_j = j;
 			}
 		}
 	}

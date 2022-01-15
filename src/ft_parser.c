@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:52:20 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/12 19:42:37 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 04:43:59 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,6 @@ static t_list	*ft_map_to_list(int fd)
 		exit(E_BADMAP);
 	}
 	return (lst);
-}
-
-/**
- * @brief Clear matrix from memory.
- * Frees all allocated memory and sets matrix pointer to NULL
- * (Helper function for ft_parser)
- * @param matrix: Matrix to operate on
- */
-static void	ft_clear_matrix(char ***matrix)
-{
-	int	i;
-
-	i = 0;
-	while (*matrix[i] != NULL)
-	{
-		free(*matrix[i]);
-		++i;
-	}
-	*matrix = NULL;
-	free(*matrix);
 }
 
 /**

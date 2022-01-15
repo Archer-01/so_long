@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_destroy.h                                       :+:      :+:    :+:   */
+/*   ft_move.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 11:01:44 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 04:44:54 by hhamza           ###   ########.fr       */
+/*   Created: 2022/01/15 04:33:12 by hhamza            #+#    #+#             */
+/*   Updated: 2022/01/15 04:39:17 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_DESTROY_H
-# define FT_DESTROY_H
+#ifndef FT_MOVE_H
+# define FT_MOVE_H
 
-# include <mlx.h>
-# include "libft.h"
 # include "ft_types.h"
-# include "ft_errors.h"
+# include "ft_hooks.h"
 # include "ft_utils.h"
+# include "ft_render.h"
+# include <stdio.h>
 
-void	ft_destroy_map(t_map **map_data, t_mlx *mlx);
+void	ft_move(t_map *data, int keycode);
 
 #endif

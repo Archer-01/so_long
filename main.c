@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:41:49 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/14 20:10:24 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 03:13:53 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 #include "ft_destroy.h"
 #include <mlx.h>
 #include "ft_render.h"
+#include "ft_hooks.h"
+#include "ft_utils.h"
 
 int	main(int argc, char **argv)
 {
 	char	**map;
-	t_map	*map_data;
+	t_map	*data;
 
 	if (argc != 2)
 	{
@@ -30,7 +32,9 @@ int	main(int argc, char **argv)
 		exit(E_BADARGS);
 	}
 	map = ft_parser(argv[1]);
-	map_data = ft_init_map((const char **) map);
-	ft_render(map_data, (const char **) map);
+	data = ft_init_map((const char **) map);
+	ft_render(data, (const char **) map);
+	ft_install_hooks(data);
+	mlx_loop(data->mlx->mlx_ptr);
 	return (0);
 }

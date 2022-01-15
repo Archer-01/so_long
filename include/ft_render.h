@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 05:40:19 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/14 05:45:27 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 00:07:36 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 # include "ft_init.h"
 
 void	ft_render(t_map *map_data, const char **map);
+void	ft_put_img(void *img_ptr, int i, int j, t_mlx *mlx);
 
 #endif

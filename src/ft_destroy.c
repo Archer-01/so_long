@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 11:27:02 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/13 12:54:29 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 04:58:50 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,18 +108,19 @@ static void	ft_destroy_mlx(t_mlx **mlx)
  * @param map_data: Map data to destroy
  * @param mlx: Mlx data
  */
-void	ft_destroy_map(t_map **map_data, t_mlx *mlx)
+void	ft_destroy_map(t_map **data, t_mlx *mlx)
 {
-	if (map_data == NULL || mlx == NULL)
+	if (data == NULL || mlx == NULL)
 	{
 		ft_putstr_fd(E_NULL_ARG_MSG, STDERR_FILENO);
 		exit(E_NULL_ARG);
 	}
-	ft_destroy_player_imgs(&((*map_data)->player_imgs), mlx);
-	ft_destroy_img(&((*map_data)->collectible), mlx);
-	ft_destroy_img(&((*map_data)->empty), mlx);
-	ft_destroy_img(&((*map_data)->exit), mlx);
-	ft_destroy_img(&((*map_data)->wall), mlx);
-	ft_destroy_mlx(&((*map_data)->mlx));
-	*map_data = NULL;
+	ft_destroy_player_imgs(&((*data)->player_imgs), mlx);
+	ft_destroy_img(&((*data)->collectible), mlx);
+	ft_destroy_img(&((*data)->empty), mlx);
+	ft_destroy_img(&((*data)->exit), mlx);
+	ft_destroy_img(&((*data)->wall), mlx);
+	ft_destroy_mlx(&((*data)->mlx));
+	ft_clear_matrix(&((*data)->map));
+	*data = NULL;
 }

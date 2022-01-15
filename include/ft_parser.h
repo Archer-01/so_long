@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:48:04 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/12 12:44:16 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 04:46:09 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft.h"
 # include "get_next_line.h"
 # include "ft_errors.h"
+# include "ft_utils.h"
 # include <fcntl.h>
 # include <stdio.h>
 

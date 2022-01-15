@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 01:34:32 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/14 03:59:40 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/15 05:06:25 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,56 @@ int	ft_open(const char *path)
 		exit(E_NOFILE);
 	}
 	return (fd);
+}
+
+/**
+ * @brief Free all allocated memory and exit program.
+ *
+ * @param data: Daya to be freed
+ * @return int: Zero
+ */
+int	ft_exit(t_map *data)
+{
+	ft_destroy_map(&data, data->mlx);
+	exit(EXIT_SUCCESS);
+}
+
+/**
+ * @brief Swap two characters.
+ *
+ * @param a: First character
+ * @param b: Second character
+ */
+void	ft_swap(char *a, char *b)
+{
+	char	c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
+}
+
+/**
+ * @brief Clear matrix from memory.
+ * Frees all allocated memory and sets matrix pointer to NULL
+ * (Helper function for ft_parser)
+ * @param matrix: Matrix to operate on
+ */
+void	ft_clear_matrix(char ***matrix)
+{
+	int	i;
+
+	if (matrix == NULL)
+	{
+		ft_putstr_fd(E_NULL_ARG_MSG, STDERR_FILENO);
+		exit(E_NULL_ARG);
+	}
+	i = 0;
+	while ((*matrix)[i] != NULL)
+	{
+		free((*matrix)[i]);
+		++i;
+	}
+	*matrix = NULL;
+	free(*matrix);
 }

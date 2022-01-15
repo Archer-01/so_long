@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_destroy.h                                       :+:      :+:    :+:   */
+/*   ft_hooks.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/13 11:01:44 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 04:44:54 by hhamza           ###   ########.fr       */
+/*   Created: 2022/01/14 21:04:46 by hhamza            #+#    #+#             */
+/*   Updated: 2022/01/15 22:00:02 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_DESTROY_H
-# define FT_DESTROY_H
+#ifndef FT_HOOKS_H
+# define FT_HOOKS_H
 
-# include <mlx.h>
-# include "libft.h"
 # include "ft_types.h"
-# include "ft_errors.h"
 # include "ft_utils.h"
+# include "ft_move.h"
+# include <mlx.h>
 
-void	ft_destroy_map(t_map **map_data, t_mlx *mlx);
+# define ON_WIN_CLOSE 17
+# define ON_KEY_PRESS 2
+
+# define ESC_KEY 53
+# define W_KEY 13
+# define A_KEY 0
+# define S_KEY 1
+# define D_KEY 2
+
+void	ft_install_hooks(t_map *data);
 
 #endif

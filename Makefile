@@ -19,14 +19,18 @@ NAME	:= so_long
 SRCS	:= ft_checks_1.c \
 			ft_checks_2.c \
 			ft_destroy.c \
+			ft_hooks.c \
 			ft_init_1.c \
 			ft_init_2.c \
+			ft_move.c \
 			ft_parser.c \
 			ft_render.c \
 			ft_utils.c
 HEADERS	:= ft_destroy.h \
 			ft_errors.h \
+			ft_hooks.h \
 			ft_init.h \
+			ft_move.h \
 			ft_parser.h \
 			ft_render.h \
 			ft_types.h \
