@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.h                                         :+:      :+:    :+:   */
+/*   ft_utils_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 01:33:52 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 04:04:22 by hhamza           ###   ########.fr       */
+/*   Created: 2022/01/16 04:04:05 by hhamza            #+#    #+#             */
+/*   Updated: 2022/01/16 04:04:13 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_UTILS_H
-# define FT_UTILS_H
+#include "ft_utils.h"
 
-# include "libft.h"
-# include "ft_errors.h"
-# include "ft_types.h"
-# include "ft_destroy.h"
-# include <fcntl.h>
+/**
+ * @brief Log player moves
+ *
+ * @param data: Game data
+ */
+void	ft_log_moves(t_game *data)
+{
+	char	*move_count;
+	char	*msg;
+	int		color;
 
-void	*ft_allocate(size_t count, size_t size);
-int		ft_open(const char *path);
-int		ft_exit(t_game *data);
-void	ft_swap(char *a, char *b);
-void	ft_clear_matrix(char ***matrix);
-void	ft_log_moves(t_game *data);
-
-#endif
+	move_count = ft_itoa(data->player_moves);
+	msg = ft_strjoin("Move count: ", move_count);
+	color = 0xFFFFFF00;
+	mlx_string_put(data->mlx->mlx_ptr, data->mlx->win_ptr, 20, 10, color, msg);
+	free(move_count);
+	free(msg);
+}

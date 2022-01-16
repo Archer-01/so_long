@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 05:40:19 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:51:36 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 04:07:56 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "ft_types.h"
 # include "ft_init.h"
 
-void	ft_render(t_game *map_data, const char **map);
+void	ft_render(t_game *map_data);
 void	ft_put_img(void *img_ptr, int i, int j, t_mlx *mlx);
 
 #endif

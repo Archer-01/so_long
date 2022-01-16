@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:41:49 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:51:36 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 04:08:02 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	}
 	map = ft_parser(argv[1]);
 	data = ft_init_map((const char **) map);
-	ft_render(data, (const char **) map);
+	ft_render(data);
 	ft_install_hooks(data);
 	mlx_loop(data->mlx->mlx_ptr);
 	return (0);

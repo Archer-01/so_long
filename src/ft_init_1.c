@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 03:39:38 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 05:57:26 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 04:17:36 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,17 +110,18 @@ t_game	*ft_init_map(const char **map)
 	t_game	*data;
 
 	data = ft_allocate(1, sizeof(t_game));
-	data->width = ft_strlen(map[0]) * BLOCK_SIZE;
-	data->height = ft_maplen(map) * BLOCK_SIZE;
-	data->collectible_count = ft_count_collectibles(map);
-	data->mlx = ft_init_mlx(data->width, data->height, WIN_TITLE);
+	data->width = ft_strlen(map[0]);
+	data->height = ft_maplen(map);
+	data->collect_count = ft_count_collectibles(map);
+	data->mlx = ft_init_mlx(data->width * BLOCK_SIZE, data->height * BLOCK_SIZE,
+			WIN_TITLE);
 	data->player_imgs = ft_init_player_imgs(data->mlx);
 	data->collectible = ft_init_img("assets/collectible.xpm", data->mlx);
 	data->empty = ft_init_img("assets/empty.xpm", data->mlx);
 	data->exit = ft_init_img("assets/exit.xpm", data->mlx);
 	data->wall = ft_init_img("assets/wall.xpm", data->mlx);
 	data->map = (char **) map;
-	data->player_collectibles = 0;
+	data->p_collect = 0;
 	data->player_moves = 0;
 	return (data);
 }

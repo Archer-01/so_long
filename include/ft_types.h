@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 13:48:14 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:51:15 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 03:30:08 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ typedef struct s_map
 	void			*wall;
 	int				width;
 	int				height;
-	int				collectible_count;
+	int				collect_count;
 	int				player_i;
 	int				player_j;
 	char			**map;
-	int				player_collectibles;
+	int				p_collect;
 	int				player_moves;
 }	t_game;
 

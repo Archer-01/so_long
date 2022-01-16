@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 04:33:58 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:54:24 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 04:11:43 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,41 @@ static void	ft_calc_new_coords(int keycode, t_game *data, int *i, int *j)
 }
 
 /**
- * @brief Update and log player moves
+ * @brief Move player to appropriate position
  *
  * @param data: Game data
+ * @param i: New position line index in map matrix
+ * @param j: New position column index in map matrix
  */
-static void	ft_log_moves(t_game *data)
+static void	ft_move_player(t_game *data, int i, int j)
 {
-	++(data->player_moves);
-	printf("%sMove count: %d\n", "\e[0;33m", data->player_moves);
+	ft_swap(&data->map[data->player_i][data->player_j], &data->map[i][j]);
+	if (data->map[data->player_i][data->player_j] == 'C')
+	{
+		data->map[data->player_i][data->player_j] = '0';
+		++(data->p_collect);
+	}
+	ft_put_img(data->empty, data->player_i, data->player_j, data->mlx);
+	ft_put_img(data->player_imgs->idle->frames[0], i, j, data->mlx);
+	data->player_i = i;
+	data->player_j = j;
+}
+
+/**
+ * @brief Draw 1st row walls.
+ * (Used to avoid text overlapping when updating player moves)
+ * @param data: Game data
+ */
+static void	ft_draw_walls(t_game *data)
+{
+	int	j;
+
+	j = 0;
+	while (j < data->width)
+	{
+		ft_put_img(data->wall, 0, j, data->mlx);
+		++j;
+	}
 }
 
 /**
@@ -59,21 +86,15 @@ void	ft_move(t_game *data, int keycode)
 	ft_calc_new_coords(keycode, data, &i, &j);
 	if (data->map[i][j] == '0' || data->map[i][j] == 'C')
 	{
-		ft_swap(&data->map[data->player_i][data->player_j], &data->map[i][j]);
-		if (data->map[data->player_i][data->player_j] == 'C')
-		{
-			data->map[data->player_i][data->player_j] = '0';
-			++(data->player_collectibles);
-		}
-		ft_put_img(data->empty, data->player_i, data->player_j, data->mlx);
-		ft_put_img(data->player_imgs->idle->frames[0], i, j, data->mlx);
-		data->player_i = i;
-		data->player_j = j;
+		ft_move_player(data, i, j);
+		++(data->player_moves);
+		ft_draw_walls(data);
 		ft_log_moves(data);
 	}
-	else if (data->map[i][j] == 'E'
-		&& data->player_collectibles == data->collectible_count)
+	else if (data->map[i][j] == 'E' && data->p_collect == data->collect_count)
 	{
+		++(data->player_moves);
+		ft_draw_walls(data);
 		ft_log_moves(data);
 		printf("%sYou win!!\n", "\e[0;32m");
 		ft_exit(data);

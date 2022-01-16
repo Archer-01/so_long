@@ -25,7 +25,8 @@ SRCS	:= ft_checks_1.c \
 			ft_move.c \
 			ft_parser.c \
 			ft_render.c \
-			ft_utils.c
+			ft_utils_1.c \
+			ft_utils_2.c
 HEADERS	:= ft_destroy.h \
 			ft_errors.h \
 			ft_hooks.h \
