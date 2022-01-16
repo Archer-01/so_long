@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 05:42:13 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 04:10:34 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 08:04:59 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static void	ft_render_helper(t_game *data, int i, int j)
 		data->player_i = i;
 		data->player_j = j;
 	}
+	else if (data->map[i][j] == 'X')
+		ft_put_img(data->enemy, i, j, data->mlx);
 }
 
 /**

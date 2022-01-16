@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 13:48:14 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 03:30:08 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 08:05:13 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_map
 	t_player_imgs	*player_imgs;
 	void			*collectible;
 	void			*empty;
+	void			*enemy;
 	void			*exit;
 	void			*wall;
 	int				width;

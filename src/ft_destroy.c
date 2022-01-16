@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 11:27:02 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 23:05:39 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 08:31:29 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,18 +108,19 @@ static void	ft_destroy_mlx(t_mlx **mlx)
  * @param data: Game data to destroy
  * @param mlx: Mlx data
  */
-void	ft_destroy_game_data(t_game **data, t_mlx *mlx)
+void	ft_destroy_game_data(t_game **data)
 {
-	if (data == NULL || mlx == NULL)
+	if (data == NULL || (*data)->mlx == NULL)
 	{
 		ft_putstr_fd(E_NULL_ARG_MSG, STDERR_FILENO);
 		exit(E_NULL_ARG);
 	}
-	ft_destroy_player_imgs(&((*data)->player_imgs), mlx);
-	ft_destroy_img(&((*data)->collectible), mlx);
-	ft_destroy_img(&((*data)->empty), mlx);
-	ft_destroy_img(&((*data)->exit), mlx);
-	ft_destroy_img(&((*data)->wall), mlx);
+	ft_destroy_player_imgs(&((*data)->player_imgs), (*data)->mlx);
+	ft_destroy_img(&((*data)->collectible), (*data)->mlx);
+	ft_destroy_img(&((*data)->empty), (*data)->mlx);
+	ft_destroy_img(&((*data)->enemy), (*data)->mlx);
+	ft_destroy_img(&((*data)->exit), (*data)->mlx);
+	ft_destroy_img(&((*data)->wall), (*data)->mlx);
 	ft_destroy_mlx(&((*data)->mlx));
 	ft_clear_matrix(&((*data)->map));
 	*data = NULL;

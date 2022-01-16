@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 04:33:58 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 04:11:43 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 08:17:00 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ static void	ft_draw_walls(t_game *data)
 
 /**
  * @brief Move player.
- *
+ * Move on empty, collectible and exit if possible.
+ * Game over on enemy.
  * @param data: Game data
  * @param keycode: Pressed key code
  */
@@ -84,18 +85,20 @@ void	ft_move(t_game *data, int keycode)
 	int	j;
 
 	ft_calc_new_coords(keycode, data, &i, &j);
+	if (data->map[i][j] == '1')
+		return ;
+	++(data->player_moves);
+	ft_draw_walls(data);
+	ft_log_moves(data);
 	if (data->map[i][j] == '0' || data->map[i][j] == 'C')
-	{
 		ft_move_player(data, i, j);
-		++(data->player_moves);
-		ft_draw_walls(data);
-		ft_log_moves(data);
+	else if (data->map[i][j] == 'X')
+	{
+		printf("%sGame over\n", "\e[0;31m");
+		ft_exit(data);
 	}
 	else if (data->map[i][j] == 'E' && data->p_collect == data->collect_count)
 	{
-		++(data->player_moves);
-		ft_draw_walls(data);
-		ft_log_moves(data);
 		printf("%sYou win!!\n", "\e[0;32m");
 		ft_exit(data);
 	}

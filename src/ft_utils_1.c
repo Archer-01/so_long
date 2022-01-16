@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_utils_1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 01:34:32 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 23:07:28 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 08:32:00 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_open(const char *path)
  */
 int	ft_exit(t_game *data)
 {
-	ft_destroy_game_data(&data, data->mlx);
+	ft_destroy_game_data(&data);
 	exit(EXIT_SUCCESS);
 }
 
