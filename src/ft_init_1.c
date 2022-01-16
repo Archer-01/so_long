@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 03:39:38 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 22:51:36 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/16 05:57:26 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ t_game	*ft_init_map(const char **map)
 	data->collectible = ft_init_img("assets/collectible.xpm", data->mlx);
 	data->empty = ft_init_img("assets/empty.xpm", data->mlx);
 	data->exit = ft_init_img("assets/exit.xpm", data->mlx);
-	data->wall = ft_init_img("assets/barrel.xpm", data->mlx);
+	data->wall = ft_init_img("assets/wall.xpm", data->mlx);
 	data->map = (char **) map;
 	data->player_collectibles = 0;
 	data->player_moves = 0;

@@ -1,0 +1,10 @@
+a.out
+so_long
+*.o
+.DS_Store
+.vscode
+.*swp
+*.dSYM
+*.a
+assets
+*.md
