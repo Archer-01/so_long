@@ -6,11 +6,40 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:52:20 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/15 04:43:59 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/17 21:58:18 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parser.h"
+
+/**
+ * @brief Remove new lines ('\n) line. Exit if there is a newline on last line.
+ *
+ * @param lst: Linked list to operate on
+ * @return t_list*: Linked list with newlines removed
+ */
+static t_list	*ft_remove_newline(t_list *lst)
+{
+	char	*str;
+	t_list	*tmp;
+	size_t	len;
+
+	tmp = lst;
+	while (tmp != NULL)
+	{
+		str = tmp->content;
+		len = ft_strlen(str);
+		if (str[len - 1] == '\n' && str[len] == '\0' && tmp->next == NULL)
+		{
+			ft_putstr_fd(E_MAP_NEWL_MSG, STDERR_FILENO);
+			exit(E_MAP_NEWL);
+		}
+		if (str[len - 1] == '\n')
+			str[len - 1] = '\0';
+		tmp = tmp->next;
+	}
+	return (lst);
+}
 
 /**
  * @brief Convert map file (.ber) to linked list.
@@ -29,8 +58,7 @@ static t_list	*ft_map_to_list(int fd)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		node = ft_lstnew(ft_substr(line, 0, ft_indexof(line, '\n')));
-		free(line);
+		node = ft_lstnew(line);
 		if (node == NULL)
 		{
 			ft_lstclear(&lst, &free);
@@ -45,7 +73,7 @@ static t_list	*ft_map_to_list(int fd)
 		ft_putstr_fd(E_BADMAP_EMPTY, STDERR_FILENO);
 		exit(E_BADMAP);
 	}
-	return (lst);
+	return (ft_remove_newline(lst));
 }
 
 /**
@@ -113,5 +141,6 @@ char	**ft_parser(const char *map_path)
 	ft_check_minimum_requirements(lst);
 	ft_check_rectangular(lst);
 	map = ft_lst_to_matrix(lst);
+	close(fd);
 	return (map);
 }
