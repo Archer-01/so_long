@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:23:31 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/12 12:32:52 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/20 12:45:53 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_check_minimum_requirements(t_list *lst)
 			&start_pos);
 		lst = lst->next;
 	}
-	if (exits < 1 || collectibles < 1 || start_pos < 1)
+	if (exits < 1 || collectibles < 1 || start_pos != 1)
 	{
 		ft_putstr_fd(E_BADMAP_MINREQ_MSG, STDERR_FILENO);
 		exit(E_BADMAP);
