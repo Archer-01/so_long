@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:38:59 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/19 23:24:25 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/20 13:44:56 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ int	ft_enemy_patrol(t_game *data)
 	static int	i;
 	int			move_ret;
 
+	if (data->enemies == NULL)
+		return (0);
 	if (i == data->enemy_count)
 		i = 0;
 	if (data->enemies[i].curr_direction == 0)

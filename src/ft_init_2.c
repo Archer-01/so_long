@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:19:51 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/19 22:28:20 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/20 13:40:12 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ t_enemy	*ft_init_enemies(const char **map, int enemies_count)
 	int		j;
 	int		k;
 
+	if (enemies_count == 0)
+		return (NULL);
 	enemies_pos = (t_enemy *) ft_allocate(enemies_count, sizeof(t_enemy));
 	k = 0;
 	i = -1;
@@ -138,8 +140,7 @@ t_enemy	*ft_init_enemies(const char **map, int enemies_count)
 				enemies_pos[k].i = i;
 				enemies_pos[k].j = j;
 				enemies_pos[k].type = map[i][j];
-				enemies_pos[k].curr_direction = 0;
-				++k;
+				enemies_pos[k++].curr_direction = 0;
 			}
 		}
 	}
