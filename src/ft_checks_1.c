@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:23:28 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 08:03:24 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/18 16:53:43 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_check_content(t_list *lst)
 		{
 			c = line[i];
 			if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P'
-				&& c != 'X')
+				&& c != 'V' && c != 'H')
 			{
 				ft_putstr_fd(E_BADMAP_CHARS_MSG, STDERR_FILENO);
 				exit(E_BADMAP);

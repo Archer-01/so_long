@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hooks.h                                         :+:      :+:    :+:   */
+/*   ft_enemy.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 21:04:46 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/19 15:19:57 by hhamza           ###   ########.fr       */
+/*   Created: 2022/01/18 17:01:55 by hhamza            #+#    #+#             */
+/*   Updated: 2022/01/19 23:16:50 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_HOOKS_H
-# define FT_HOOKS_H
+#ifndef FT_ENEMY_H
+# define FT_ENEMY_H
 
-# include "ft_types.h"
 # include "ft_utils.h"
+# include "ft_types.h"
 # include "ft_move.h"
-# include "ft_enemy.h"
-# include <mlx.h>
 
-# define ON_WIN_CLOSE 17
-# define ON_KEY_PRESS 2
+# define ENEMY_LEFT 1
+# define ENEMY_RIGHT 2
+# define ENEMY_UP 3
+# define ENEMY_DOWN 4
 
-# define ESC_KEY 53
-# define W_KEY 13
-# define A_KEY 0
-# define S_KEY 1
-# define D_KEY 2
-
-void	ft_install_hooks(t_game *data);
+int	ft_enemy_patrol(t_game *data);
 
 #endif

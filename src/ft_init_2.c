@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:19:51 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/14 04:14:56 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/19 22:28:20 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,67 @@ t_mlx	*ft_init_mlx(int width, int height, const char *title)
 		exit(E_MLX_WIN);
 	}
 	return (mlx);
+}
+
+/**
+ * @brief Count enemies on map
+ *
+ * @param map: Map to operate on
+ * @return int: Enemy count
+ */
+int	ft_count_enemies(const char **map)
+{
+	int	i;
+	int	j;
+	int	enemies_count;
+
+	enemies_count = 0;
+	i = 0;
+	while (map[i] != NULL)
+	{
+		j = 0;
+		while (map[i][j] != '\0')
+		{
+			if (map[i][j] == 'V' || map[i][j] == 'H')
+				++enemies_count;
+			++j;
+		}
+		++i;
+	}
+	return (enemies_count);
+}
+
+/**
+ * @brief Save enemies type (H|V) and position (i, j)
+ *
+ * @param map: Map to operate on
+ * @param enemies_count: Enemies count
+ * @return t_enemy*: Array of enemy data
+ */
+t_enemy	*ft_init_enemies(const char **map, int enemies_count)
+{
+	t_enemy	*enemies_pos;
+	int		i;
+	int		j;
+	int		k;
+
+	enemies_pos = (t_enemy *) ft_allocate(enemies_count, sizeof(t_enemy));
+	k = 0;
+	i = -1;
+	while (map[++i] != NULL)
+	{
+		j = -1;
+		while (map[i][++j] != '\0')
+		{
+			if (map[i][j] == 'V' || map[i][j] == 'H')
+			{
+				enemies_pos[k].i = i;
+				enemies_pos[k].j = j;
+				enemies_pos[k].type = map[i][j];
+				enemies_pos[k].curr_direction = 0;
+				++k;
+			}
+		}
+	}
+	return (enemies_pos);
 }

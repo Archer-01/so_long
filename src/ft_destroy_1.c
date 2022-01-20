@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_destroy.c                                       :+:      :+:    :+:   */
+/*   ft_destroy_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 11:27:02 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 08:31:29 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/19 23:19:10 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,6 @@ void	ft_destroy_game_data(t_game **data)
 	ft_destroy_img(&((*data)->wall), (*data)->mlx);
 	ft_destroy_mlx(&((*data)->mlx));
 	ft_clear_matrix(&((*data)->map));
+	ft_destroy_enemies(&((*data)->enemies), (*data)->enemy_count);
 	*data = NULL;
 }

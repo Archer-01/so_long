@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 03:39:38 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 08:05:43 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/19 23:19:10 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,7 @@ t_game	*ft_init_map(const char **map)
 	data->map = (char **) map;
 	data->p_collect = 0;
 	data->player_moves = 0;
+	data->enemy_count = ft_count_enemies(map);
+	data->enemies = ft_init_enemies(map, data->enemy_count);
 	return (data);
 }

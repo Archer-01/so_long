@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 13:48:14 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 08:05:13 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/19 23:19:08 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ typedef struct s_player_imgs
 	t_animation	*down;
 }	t_player_imgs;
 
+typedef struct s_enemy
+{
+	int		i;
+	int		j;
+	char	type;
+	int		curr_direction;
+}	t_enemy;
 typedef struct s_map
 {
 	t_mlx			*mlx;
@@ -52,6 +59,8 @@ typedef struct s_map
 	char			**map;
 	int				p_collect;
 	int				player_moves;
+	int				enemy_count;
+	t_enemy			*enemies;
 }	t_game;
 
 #endif

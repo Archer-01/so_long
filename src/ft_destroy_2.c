@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hooks.h                                         :+:      :+:    :+:   */
+/*   ft_destroy_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 21:04:46 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/19 15:19:57 by hhamza           ###   ########.fr       */
+/*   Created: 2022/01/18 17:31:38 by hhamza            #+#    #+#             */
+/*   Updated: 2022/01/19 13:18:41 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_HOOKS_H
-# define FT_HOOKS_H
+#include "ft_destroy.h"
 
-# include "ft_types.h"
-# include "ft_utils.h"
-# include "ft_move.h"
-# include "ft_enemy.h"
-# include <mlx.h>
-
-# define ON_WIN_CLOSE 17
-# define ON_KEY_PRESS 2
-
-# define ESC_KEY 53
-# define W_KEY 13
-# define A_KEY 0
-# define S_KEY 1
-# define D_KEY 2
-
-void	ft_install_hooks(t_game *data);
-
-#endif
+void	ft_destroy_enemies(t_enemy **enemies, int enemies_count)
+{
+	if (enemies == NULL)
+	{
+		ft_putstr_fd(E_NULL_ARG_MSG, STDERR_FILENO);
+		exit(E_NULL_ARG);
+	}
+	ft_bzero(*enemies, enemies_count * sizeof(t_enemy));
+	free(*enemies);
+	*enemies = NULL;
+}
