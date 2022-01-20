@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:52:20 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/17 21:58:18 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/20 15:14:56 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,15 @@ static t_list	*ft_map_to_list(int fd)
 static char	**ft_lst_to_matrix(t_list *lst)
 {
 	char	**matrix;
+	t_list	*tmp;
 	int		i;
 
-	matrix = (char **) ft_calloc(ft_lstsize(lst) + 1, sizeof(char *));
-	if (matrix == NULL)
-	{
-		ft_lstclear(&lst, &free);
-		ft_putstr_fd(E_MALLOC_MSG, STDERR_FILENO);
-		exit(E_MALLOC);
-	}
+	matrix = (char **) ft_allocate(ft_lstsize(lst) + 1, sizeof(char *));
 	i = 0;
-	while (lst != NULL)
+	tmp = lst;
+	while (tmp != NULL)
 	{
-		matrix[i] = ft_strdup(lst->content);
+		matrix[i] = ft_strdup(tmp->content);
 		if (matrix[i] == NULL)
 		{
 			ft_lstclear(&lst, &free);
@@ -107,9 +103,11 @@ static char	**ft_lst_to_matrix(t_list *lst)
 			exit(E_MALLOC);
 		}
 		++i;
-		lst = lst->next;
+		tmp = tmp->next;
 	}
-	return (matrix[i] = NULL, ft_lstclear(&lst, &free), matrix);
+	matrix[i] = NULL;
+	ft_lstclear(&lst, &free);
+	return (matrix);
 }
 
 /**
