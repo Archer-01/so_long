@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:01:55 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/19 23:16:50 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/21 15:39:35 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@
 # define ENEMY_UP 3
 # define ENEMY_DOWN 4
 
-int	ft_enemy_patrol(t_game *data);
+void	ft_enemy_patrol(t_game *data);
 
 #endif

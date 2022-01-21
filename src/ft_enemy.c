@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:38:59 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/20 13:44:56 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/21 15:39:44 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,14 @@ static void	ft_set_next_move(t_game *data, int move_ret, int index)
  * @brief Make enemies patrol
  *
  * @param data: Game data
- * @return int: Zero
  */
-int	ft_enemy_patrol(t_game *data)
+void	ft_enemy_patrol(t_game *data)
 {
 	static int	i;
 	int			move_ret;
 
 	if (data->enemies == NULL)
-		return (0);
+		return ;
 	if (i == data->enemy_count)
 		i = 0;
 	if (data->enemies[i].curr_direction == 0)
@@ -113,5 +112,4 @@ int	ft_enemy_patrol(t_game *data)
 	move_ret = ft_move_enemy(data, i, data->enemies[i].curr_direction);
 	ft_set_next_move(data, move_ret, i);
 	++i;
-	return (0);
 }
