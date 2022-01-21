@@ -16,7 +16,8 @@ LIBS_DIR		:= lib
 
 # *********************************** Files ************************************
 NAME	:= so_long
-SRCS	:= ft_checks_1.c \
+SRCS	:= ft_animations.c \
+			ft_checks_1.c \
 			ft_checks_2.c \
 			ft_destroy_1.c \
 			ft_destroy_2.c \
@@ -29,7 +30,8 @@ SRCS	:= ft_checks_1.c \
 			ft_render.c \
 			ft_utils_1.c \
 			ft_utils_2.c
-HEADERS	:= ft_destroy.h \
+HEADERS	:= ft_animations.h \
+			ft_destroy.h \
 			ft_enemy.h \
 			ft_errors.h \
 			ft_hooks.h \

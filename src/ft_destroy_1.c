@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 11:27:02 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/19 23:19:10 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/21 13:49:38 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ static void	ft_destroy_player_imgs(t_player_imgs **player_imgs, t_mlx *mlx)
 		ft_putstr_fd(E_NULL_ARG_MSG, STDERR_FILENO);
 		exit(E_NULL_ARG);
 	}
-	ft_destroy_animation(&((*player_imgs)->idle), mlx);
+	ft_destroy_animation(&((*player_imgs)->idle_left), mlx);
+	ft_destroy_animation(&((*player_imgs)->idle_right), mlx);
+	ft_destroy_animation(&((*player_imgs)->idle_up), mlx);
+	ft_destroy_animation(&((*player_imgs)->idle_down), mlx);
 	ft_destroy_animation(&((*player_imgs)->left), mlx);
 	ft_destroy_animation(&((*player_imgs)->right), mlx);
 	ft_destroy_animation(&((*player_imgs)->up), mlx);

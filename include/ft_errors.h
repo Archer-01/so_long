@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 09:43:50 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/17 19:51:58 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/21 11:27:11 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define E_MLX_INIT 7
 # define E_MLX_WIN 8
 # define E_MAP_NEWL 9
+# define E_INVAL_DIR 10
 
 # define E_BADARGS_MSG "Usage: ./so_long map-path.ber\n"
 # define E_BADMAPEXT_MSG "Error\nMap file must have '.ber' extension\n"
@@ -38,5 +39,6 @@ collectible and one starting position\n"
 # define E_MLX_INIT_MSG "Error establishing mlx connection\n"
 # define E_MLX_WIN_MSG "Error creating mlx window\n"
 # define E_MAP_NEWL_MSG "Error\nMap has newline at the end\n"
+# define E_INVAL_DIR_MSG "Error\nInvalid player direction\n"
 
 #endif

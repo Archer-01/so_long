@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 05:42:13 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/18 16:55:18 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/21 13:50:36 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	ft_render_helper(t_game *data, int i, int j)
 		ft_put_img(data->exit, i, j, data->mlx);
 	else if (data->map[i][j] == 'P')
 	{
-		ft_put_img(data->player_imgs->idle->frames[0], i, j, data->mlx);
+		ft_put_img(data->player_imgs->idle_right->frames[0], i, j, data->mlx);
 		data->player_i = i;
 		data->player_j = j;
 	}

@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 04:33:58 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/16 08:17:00 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/21 11:39:06 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,25 @@ static void	ft_calc_new_coords(int keycode, t_game *data, int *i, int *j)
 	*i = data->player_i;
 	*j = data->player_j;
 	if (keycode == W_KEY)
+	{
 		--(*i);
+		data->player_direction = "run-up";
+	}
 	else if (keycode == A_KEY)
+	{
 		--(*j);
+		data->player_direction = "run-left";
+	}
 	else if (keycode == S_KEY)
+	{
 		++(*i);
+		data->player_direction = "run-down";
+	}
 	else if (keycode == D_KEY)
+	{
 		++(*j);
+		data->player_direction = "run-right";
+	}
 }
 
 /**
@@ -50,26 +62,8 @@ static void	ft_move_player(t_game *data, int i, int j)
 		++(data->p_collect);
 	}
 	ft_put_img(data->empty, data->player_i, data->player_j, data->mlx);
-	ft_put_img(data->player_imgs->idle->frames[0], i, j, data->mlx);
 	data->player_i = i;
 	data->player_j = j;
-}
-
-/**
- * @brief Draw 1st row walls.
- * (Used to avoid text overlapping when updating player moves)
- * @param data: Game data
- */
-static void	ft_draw_walls(t_game *data)
-{
-	int	j;
-
-	j = 0;
-	while (j < data->width)
-	{
-		ft_put_img(data->wall, 0, j, data->mlx);
-		++j;
-	}
 }
 
 /**
@@ -85,20 +79,23 @@ void	ft_move(t_game *data, int keycode)
 	int	j;
 
 	ft_calc_new_coords(keycode, data, &i, &j);
-	if (data->map[i][j] == '1')
-		return ;
-	++(data->player_moves);
-	ft_draw_walls(data);
-	ft_log_moves(data);
 	if (data->map[i][j] == '0' || data->map[i][j] == 'C')
-		ft_move_player(data, i, j);
-	else if (data->map[i][j] == 'X')
 	{
+		++(data->player_moves);
+		ft_move_player(data, i, j);
+		ft_log_moves(data);
+	}
+	else if (data->map[i][j] == 'V' || data->map[i][j] == 'H')
+	{
+		++(data->player_moves);
+		ft_log_moves(data);
 		printf("%sGame over\n", "\e[0;31m");
 		ft_exit(data);
 	}
 	else if (data->map[i][j] == 'E' && data->p_collect == data->collect_count)
 	{
+		++(data->player_moves);
+		ft_log_moves(data);
 		printf("%sYou win!!\n", "\e[0;32m");
 		ft_exit(data);
 	}

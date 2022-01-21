@@ -6,7 +6,7 @@
 /*   By: hhamza <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 03:39:38 by hhamza            #+#    #+#             */
-/*   Updated: 2022/01/19 23:19:10 by hhamza           ###   ########.fr       */
+/*   Updated: 2022/01/21 13:50:22 by hhamza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ t_player_imgs	*ft_init_player_imgs(t_mlx *mlx)
 	t_player_imgs	*imgs;
 
 	imgs = ft_allocate(1, sizeof(t_player_imgs));
-	imgs->idle = ft_init_animation("data/idle.animation", mlx);
+	imgs->idle_left = ft_init_animation("data/idle-left.animation", mlx);
+	imgs->idle_right = ft_init_animation("data/idle-right.animation", mlx);
+	imgs->idle_up = ft_init_animation("data/idle-up.animation", mlx);
+	imgs->idle_down = ft_init_animation("data/idle-down.animation", mlx);
 	imgs->left = ft_init_animation("data/left.animation", mlx);
 	imgs->right = ft_init_animation("data/right.animation", mlx);
 	imgs->up = ft_init_animation("data/up.animation", mlx);
@@ -126,5 +129,6 @@ t_game	*ft_init_map(const char **map)
 	data->player_moves = 0;
 	data->enemy_count = ft_count_enemies(map);
 	data->enemies = ft_init_enemies(map, data->enemy_count);
+	data->player_direction = "idle-right";
 	return (data);
 }
